@@ -1,5 +1,7 @@
 .gradle
-/build/
+build/
+
+*.bash_profile
 
 # Ignore Gradle GUI config
 gradle-app.setting
