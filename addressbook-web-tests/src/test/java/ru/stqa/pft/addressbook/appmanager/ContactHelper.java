@@ -18,6 +18,8 @@ public class ContactHelper extends HelperBase {
 
   public void deleteContact(){click(By.xpath("//*[@id=\"content\"]/form[2]/div[2]/input"));}
 
+  public void selectAllContacts(){click(By.xpath("//*[@id=\"MassCB\"]"));}
+
   public void acceptAlert(){wd.switchTo().alert().accept();}
 
   public void initContactModification(){click(By.xpath("//*[@id=\"maintable\"]/tbody/tr[2]/td[8]/a/img"));}
