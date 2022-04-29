@@ -13,7 +13,9 @@ public class ApplicationManager {
   WebDriver wd;
   private SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
-  private  GroupHelper groupHelper;
+  private GroupHelper groupHelper;
+  private ContactHelper contactHelper;
+
 
   public void init() {
     System.setProperty("chromedriver", "/usr/local/bin");
@@ -23,9 +25,9 @@ public class ApplicationManager {
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
+    contactHelper = new ContactHelper(wd);
     sessionHelper.login("admin", "secret");
   }
-
 
 
   public void stop() {
@@ -41,7 +43,9 @@ public class ApplicationManager {
     }
   }
 
-
+  public ContactHelper getContactHelper() {
+    return contactHelper;
+  }
 
   public GroupHelper getGroupHelper() {
     return groupHelper;
