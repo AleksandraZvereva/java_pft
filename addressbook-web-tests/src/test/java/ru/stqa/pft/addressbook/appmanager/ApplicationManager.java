@@ -21,7 +21,7 @@ public class ApplicationManager {
     System.setProperty("chromedriver", "/usr/local/bin");
     wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    wd.get("http://localhost/addressbook/index.php");
+    wd.get("http://localhost:9999/addressbook/index.php");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
