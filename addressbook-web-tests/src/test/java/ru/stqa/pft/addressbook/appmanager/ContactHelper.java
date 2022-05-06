@@ -50,6 +50,6 @@ public class ContactHelper extends HelperBase {
    }
 
   public boolean isThereAContact() {
-    return isElementPresent(By.xpath("//*[@id=\"60\"]"));
+    return isElementPresent(By.name("selected[]"));
   }
 }
