@@ -27,13 +27,13 @@ public class ApplicationManager {
 
 
   public void init() {
-    if (browser == BrowserType.CHROME){
-      System.setProperty("chromedriver", "/usr/local/bin");
+    if (browser.equals(BrowserType.CHROME)){
+      System.setProperty("chromedriver", "/usr/local/bin/chromedriver");
       wd = new ChromeDriver();
-    } else if (browser == BrowserType.FIREFOX){
+    } else if (browser.equals(BrowserType.FIREFOX)){
       System.setProperty("geckodriver", "/usr/local/bin/geckodriver");
       wd = new FirefoxDriver();
-    } else if (browser == BrowserType.EDGE){
+    } else if (browser.equals(BrowserType.EDGE)){
       System.setProperty("msedgedriver", "/usr/bin//usr/local/bin/msedgedriver");
       wd = new EdgeDriver();
     }
