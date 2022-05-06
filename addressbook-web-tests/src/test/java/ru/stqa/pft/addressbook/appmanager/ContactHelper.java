@@ -44,4 +44,12 @@ public class ContactHelper extends HelperBase {
 
   }
 
+  public void createContact(ContactData contact, boolean isThereGroupElement) {
+    fillNewContactForm(contact, isThereGroupElement);
+    submitContactCreation();
+   }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.xpath("//*[@id=\"60\"]"));
+  }
 }
