@@ -29,27 +29,33 @@ public class ContactHelper extends HelperBase {
 
   public void submitContactModification(){click(By.xpath("//*[@id=\"content\"]/form[1]/input[22]"));}
 
-  public void fillNewContactForm(ContactData contactData, boolean creation) {
+  public void fillNewContactForm(ContactData contactData) {
     type(By.name("firstname"), contactData.getFirstName());
     type(By.name("lastname"), contactData.getLastName());
     type(By.name("address"), contactData.getAddress());
     type(By.name("mobile"), contactData.getMobilePhone());
     type(By.name("email"), contactData.getEmail());
 
-    if (creation){
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-    } else {
-      Assert.assertFalse(isElementPresent(By.name("new_group")));
-    }
-
   }
 
-  public void createContact(ContactData contact, boolean isThereGroupElement) {
-    fillNewContactForm(contact, isThereGroupElement);
+  public void createContact(ContactData contact) {
+    fillNewContactForm(contact);
+    selectGroup(By.name("new_group"));
     submitContactCreation();
    }
 
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
+
+  public void selectGroup(By locator) {
+    try {
+      new Select(wd.findElement(locator)).selectByIndex(1);
+    } catch (NoSuchElementException e){
+      e.printStackTrace();
+    }
+
+  }
+
+
 }
