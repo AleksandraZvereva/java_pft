@@ -31,7 +31,9 @@ public class ContactHelper extends HelperBase {
 
   public void acceptAlert(){wd.switchTo().alert().accept();}
 
-  public void initContactModification(){click(By.xpath("//*[@id=\"maintable\"]/tbody/tr[2]/td[8]/a/img"));}
+  public void initContactModification(int index){
+    wd.findElements(By.xpath("//td[@class='center']/following-sibling::td[7]")).get(index).click();
+  }
 
   public void submitContactModification(){click(By.xpath("//*[@id=\"content\"]/form[1]/input[22]"));}
 
